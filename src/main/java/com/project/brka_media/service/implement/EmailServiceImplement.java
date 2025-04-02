@@ -52,7 +52,6 @@ public class EmailServiceImplement implements EmailService {
             templateModel.put("lastInsurance", emailDTO.getLastInsurance());
             templateModel.put("desireCoverage", emailDTO.getDesireCoverage());
             templateModel.put("email", emailDTO.getEmail());
-            System.out.println(emailDTO.getTypeMessage());
             ObjectMapper objectMapper = new ObjectMapper();
             String templateModelJson = objectMapper.writeValueAsString(templateModel);
             Integer templateId = null;

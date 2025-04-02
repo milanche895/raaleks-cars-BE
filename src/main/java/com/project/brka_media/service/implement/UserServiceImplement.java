@@ -62,8 +62,6 @@ public class UserServiceImplement implements UserService {
     public UserDTO getUserById(String id) {
 
         UserEntity userEntity =  userRepository.findOneById(id);
-        System.out.println(userEntity);
-        System.out.println(userEntity.getId());
         if (Objects.isNull(userEntity)){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found!");
         } else {

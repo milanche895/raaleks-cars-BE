@@ -46,16 +46,13 @@ public class JwtUtil {
 
 	public String generateToken(UserDetails userDetails, UserEntity userEntity) {
 		Map<String, Object> claims = new HashMap<>();
-		System.out.println(userDetails.getAuthorities());
 		Collection<? extends GrantedAuthority> roles = userDetails.getAuthorities();
-		System.out.println("sssswwwww");
 		if (roles.contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
 			claims.put("isAdmin", true);
 		}
 		if (roles.contains(new SimpleGrantedAuthority("ROLE_CLIENT"))) {
 			claims.put("isClient", true);
 		}
-		System.out.println(userDetails.getUsername());
 		claims.put("id", userEntity.getId() );
 		return doGenerateToken(claims, userDetails.getUsername());
 	}

@@ -16,7 +16,6 @@ public class RaaleksCarsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RaaleksCarsApplication.class, args);
-		System.out.println("test");
 	}
 	@Bean
 	public Docket productApi() {

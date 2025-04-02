@@ -59,11 +59,8 @@ public class UserController {
         }
 
         UserDetails userdetails = userDetailsService.loadUserByUsername(userEntity.getUsername());
-        System.out.println(userdetails);
         UserEntity userFromDB = userRepository.findByUsername(userEntity.getUsername());
-        System.out.println(userFromDB);
         String token = "Bearer " + jwtUtil.generateToken(userdetails, userFromDB);
-        System.out.println(token);
         return ResponseEntity.ok(new AuthenticationResponse(token, userdetails.getAuthorities()));
     }
     @PostMapping(WebConstants.PUBLIC_BASE_URL + "/registration")
@@ -81,7 +78,6 @@ public class UserController {
     }
     @GetMapping(WebConstants.PUBLIC_BASE_URL + "/user/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable(name = "id") String id) {
-        System.out.println(id);
         return new ResponseEntity<UserDTO>(userService.getUserById(id), HttpStatus.OK);
     }
     @GetMapping(WebConstants.BASE_ADMIN_URL + "/user/client")
