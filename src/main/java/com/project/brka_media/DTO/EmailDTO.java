@@ -10,18 +10,21 @@ public class EmailDTO {
     private String brand;
     private String model;
     private String mileage;
-    private String zipCode;
+    private String vehicleLocationZipCode;
+    private String emailAddress;
+    private String phoneNumber;
+    private String plz;
     private String phone;
-    private String firstName;
+    private String first_name;
     private String birthday;
-    private String country;
-    private String residence;
-    private String typeCertificate;
-    private String stateNumber;
-    private String marketPlace;
+    private String country_of_origin;
+    private String residence_permit;
+    private String type_certificate;
+    private String state_number;
+    private String placing_on_the_market;
     private String km;
-    private String lastInsurance;
-    private String desireCoverage;
+    private String your_last_insurance;
+    private String liability;
     private String typeMessage;
 
     public EmailDTO(){
@@ -108,68 +111,12 @@ public class EmailDTO {
         this.mileage = mileage;
     }
 
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getBirthday() {
         return birthday;
     }
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getResidence() {
-        return residence;
-    }
-
-    public void setResidence(String residence) {
-        this.residence = residence;
-    }
-
-    public String getTypeCertificate() {
-        return typeCertificate;
-    }
-
-    public void setTypeCertificate(String typeCertificate) {
-        this.typeCertificate = typeCertificate;
-    }
-
-    public String getStateNumber() {
-        return stateNumber;
-    }
-
-    public void setStateNumber(String stateNumber) {
-        this.stateNumber = stateNumber;
-    }
-
-    public String getMarketPlace() {
-        return marketPlace;
-    }
-
-    public void setMarketPlace(String marketPlace) {
-        this.marketPlace = marketPlace;
     }
 
     public String getKm() {
@@ -180,19 +127,99 @@ public class EmailDTO {
         this.km = km;
     }
 
-    public String getLastInsurance() {
-        return lastInsurance;
+    public String getVehicleLocationZipCode() {
+        return vehicleLocationZipCode;
     }
 
-    public void setLastInsurance(String lastInsurance) {
-        this.lastInsurance = lastInsurance;
+    public void setVehicleLocationZipCode(String vehicleLocationZipCode) {
+        this.vehicleLocationZipCode = vehicleLocationZipCode;
     }
 
-    public String getDesireCoverage() {
-        return desireCoverage;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setDesireCoverage(String desireCoverage) {
-        this.desireCoverage = desireCoverage;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPlz() {
+        return plz;
+    }
+
+    public void setPlz(String plz) {
+        this.plz = plz;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getCountry_of_origin() {
+        return country_of_origin;
+    }
+
+    public void setCountry_of_origin(String country_of_origin) {
+        this.country_of_origin = country_of_origin;
+    }
+
+    public String getResidence_permit() {
+        return residence_permit;
+    }
+
+    public void setResidence_permit(String residence_permit) {
+        this.residence_permit = residence_permit;
+    }
+
+    public String getType_certificate() {
+        return type_certificate;
+    }
+
+    public void setType_certificate(String type_certificate) {
+        this.type_certificate = type_certificate;
+    }
+
+    public String getState_number() {
+        return state_number;
+    }
+
+    public void setState_number(String state_number) {
+        this.state_number = state_number;
+    }
+
+    public String getPlacing_on_the_market() {
+        return placing_on_the_market;
+    }
+
+    public void setPlacing_on_the_market(String placing_on_the_market) {
+        this.placing_on_the_market = placing_on_the_market;
+    }
+
+    public String getYour_last_insurance() {
+        return your_last_insurance;
+    }
+
+    public void setYour_last_insurance(String your_last_insurance) {
+        this.your_last_insurance = your_last_insurance;
+    }
+
+    public String getLiability() {
+        return liability;
+    }
+
+    public void setLiability(String liability) {
+        this.liability = liability;
     }
 }
