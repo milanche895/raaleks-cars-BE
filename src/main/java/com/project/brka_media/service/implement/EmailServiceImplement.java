@@ -69,7 +69,7 @@ public class EmailServiceImplement implements EmailService {
             templateModel.put("km", emailDTO.getKm());
             templateModel.put("lastInsurance", emailDTO.getYour_last_insurance());
             templateModel.put("desireCoverage", emailDTO.getLiability());
-            templateModel.put("cvlink",emailDTO.getCvlink());
+            templateModel.put("cvLink",emailDTO.getCvlink());
             ObjectMapper objectMapper = new ObjectMapper();
             String templateModelJson = objectMapper.writeValueAsString(templateModel);
             Integer templateId = null;
