@@ -6,6 +6,7 @@ public class EmailDTO {
     private String email;
     private String message;
     private String subject;
+    private String firstAndLastNameOfTheOwner;
     private String firstRegistration;
     private String brand;
     private String model;
@@ -221,5 +222,13 @@ public class EmailDTO {
 
     public void setLiability(String liability) {
         this.liability = liability;
+    }
+
+    public String getFirstAndLastNameOfTheOwner() {
+        return firstAndLastNameOfTheOwner;
+    }
+
+    public void setFirstAndLastNameOfTheOwner(String firstAndLastNameOfTheOwner) {
+        this.firstAndLastNameOfTheOwner = firstAndLastNameOfTheOwner;
     }
 }

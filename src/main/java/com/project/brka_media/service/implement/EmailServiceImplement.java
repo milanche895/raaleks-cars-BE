@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class EmailServiceImplement implements EmailService {
@@ -32,20 +33,33 @@ public class EmailServiceImplement implements EmailService {
             // Kreiranje modela sa podacima za templejt
             Map<String, Object> templateModel = new HashMap<>();
             templateModel.put("name", emailDTO.getName());
-            templateModel.put("email", emailDTO.getEmail());
             templateModel.put("message", emailDTO.getMessage());
             templateModel.put("subject", emailDTO.getSubject());
             templateModel.put("firstRegistration", emailDTO.getFirstRegistration());
             templateModel.put("brand", emailDTO.getBrand());
             templateModel.put("model", emailDTO.getModel());
             templateModel.put("mileage", emailDTO.getMileage());
-            templateModel.put("zipCode", emailDTO.getVehicleLocationZipCode());
-            templateModel.put("email", emailDTO.getEmailAddress());
-            templateModel.put("phone", emailDTO.getPhoneNumber());
-            templateModel.put("firstName", emailDTO.getFirst_name());
-            templateModel.put("zipCode", emailDTO.getPlz());
+            if (Objects.nonNull(emailDTO.getVehicleLocationZipCode())){
+                templateModel.put("zipCode", emailDTO.getVehicleLocationZipCode());
+            } else if (Objects.nonNull(emailDTO.getPlz())){
+                templateModel.put("zipCode", emailDTO.getPlz());
+            }
+            if (Objects.nonNull(emailDTO.getEmailAddress())){
+                templateModel.put("email", emailDTO.getEmailAddress());
+            } else if (Objects.nonNull(emailDTO.getEmail())){
+                templateModel.put("email", emailDTO.getEmail());
+            }
+            if (Objects.nonNull(emailDTO.getPhoneNumber())){
+                templateModel.put("phone", emailDTO.getPhoneNumber());
+            } else if (Objects.nonNull(emailDTO.getPhone())){
+                templateModel.put("phone", emailDTO.getPhone());
+            }
+            if (Objects.nonNull(emailDTO.getFirst_name())){
+                templateModel.put("firstName", emailDTO.getFirst_name());
+            } else if (Objects.nonNull(emailDTO.getFirstAndLastNameOfTheOwner())){
+                templateModel.put("firstName", emailDTO.getFirstAndLastNameOfTheOwner());
+            }
             templateModel.put("birthday", emailDTO.getBirthday());
-            templateModel.put("phone", emailDTO.getPhone());
             templateModel.put("country", emailDTO.getCountry_of_origin());
             templateModel.put("residence", emailDTO.getResidence_permit());
             templateModel.put("typeCertificate", emailDTO.getType_certificate());
@@ -54,7 +68,6 @@ public class EmailServiceImplement implements EmailService {
             templateModel.put("km", emailDTO.getKm());
             templateModel.put("lastInsurance", emailDTO.getYour_last_insurance());
             templateModel.put("desireCoverage", emailDTO.getLiability());
-            templateModel.put("email", emailDTO.getEmail());
             ObjectMapper objectMapper = new ObjectMapper();
             String templateModelJson = objectMapper.writeValueAsString(templateModel);
             Integer templateId = null;
