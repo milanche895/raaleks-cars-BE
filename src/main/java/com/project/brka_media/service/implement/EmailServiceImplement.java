@@ -32,6 +32,11 @@ public class EmailServiceImplement implements EmailService {
 
             // Kreiranje modela sa podacima za templejt
             Map<String, Object> templateModel = new HashMap<>();
+            if (Objects.nonNull(emailDTO.getName())){
+                templateModel.put("name", emailDTO.getName());
+            } else if (Objects.nonNull(emailDTO.getFirstAndLastNameOfTheOwner())){
+                templateModel.put("name", emailDTO.getFirstAndLastNameOfTheOwner());
+            }
             templateModel.put("name", emailDTO.getName());
             templateModel.put("message", emailDTO.getMessage());
             templateModel.put("subject", emailDTO.getSubject());
@@ -54,11 +59,7 @@ public class EmailServiceImplement implements EmailService {
             } else if (Objects.nonNull(emailDTO.getPhone())){
                 templateModel.put("phone", emailDTO.getPhone());
             }
-            if (Objects.nonNull(emailDTO.getFirst_name())){
-                templateModel.put("firstName", emailDTO.getFirst_name());
-            } else if (Objects.nonNull(emailDTO.getFirstAndLastNameOfTheOwner())){
-                templateModel.put("firstName", emailDTO.getFirstAndLastNameOfTheOwner());
-            }
+            templateModel.put("firstName", emailDTO.getFirst_name());
             templateModel.put("birthday", emailDTO.getBirthday());
             templateModel.put("country", emailDTO.getCountry_of_origin());
             templateModel.put("residence", emailDTO.getResidence_permit());
