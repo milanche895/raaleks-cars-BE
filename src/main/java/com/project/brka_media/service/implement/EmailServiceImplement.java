@@ -69,6 +69,7 @@ public class EmailServiceImplement implements EmailService {
             templateModel.put("km", emailDTO.getKm());
             templateModel.put("lastInsurance", emailDTO.getYour_last_insurance());
             templateModel.put("desireCoverage", emailDTO.getLiability());
+            templateModel.put("cvlink",emailDTO.getCvlink());
             ObjectMapper objectMapper = new ObjectMapper();
             String templateModelJson = objectMapper.writeValueAsString(templateModel);
             Integer templateId = null;
@@ -78,7 +79,9 @@ public class EmailServiceImplement implements EmailService {
                 templateId = 39585451;
             } else if (emailDTO.getTypeMessage().equals("sell")){
                 templateId = 39585486;
-            } else {
+            } else if (emailDTO.getTypeMessage().equals("job")){
+                templateId = 39585486;
+            }else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please insert typeMessage: contact, sell or insurance!");
             }
             TemplatedMessage message = new TemplatedMessage("it@buta-solution.com", "milanstojanovic895@gmail.com", templateId);

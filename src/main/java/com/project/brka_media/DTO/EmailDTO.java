@@ -27,6 +27,7 @@ public class EmailDTO {
     private String your_last_insurance;
     private String liability;
     private String typeMessage;
+    private String cvlink;
 
     public EmailDTO(){
 
@@ -230,5 +231,13 @@ public class EmailDTO {
 
     public void setFirstAndLastNameOfTheOwner(String firstAndLastNameOfTheOwner) {
         this.firstAndLastNameOfTheOwner = firstAndLastNameOfTheOwner;
+    }
+
+    public String getCvlink() {
+        return cvlink;
+    }
+
+    public void setCvlink(String cvlink) {
+        this.cvlink = cvlink;
     }
 }
