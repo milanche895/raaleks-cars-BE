@@ -29,8 +29,6 @@ public class EmailServiceImplement implements EmailService {
     public void contactUs(EmailDTO emailDTO) throws IOException {
 
         try {
-
-            // Kreiranje modela sa podacima za templejt
             Map<String, Object> templateModel = new HashMap<>();
             if (Objects.nonNull(emailDTO.getName())){
                 templateModel.put("name", emailDTO.getName());
@@ -69,9 +67,8 @@ public class EmailServiceImplement implements EmailService {
             templateModel.put("km", emailDTO.getKm());
             templateModel.put("lastInsurance", emailDTO.getYour_last_insurance());
             templateModel.put("desireCoverage", emailDTO.getLiability());
-            templateModel.put("cvLink",emailDTO.getCvlink());
-            ObjectMapper objectMapper = new ObjectMapper();
-            String templateModelJson = objectMapper.writeValueAsString(templateModel);
+            templateModel.put("cvLink",emailDTO.getCvLink());
+
             Integer templateId = null;
             if (emailDTO.getTypeMessage().equals("contact")){
                 templateId = 39582275;
@@ -85,12 +82,11 @@ public class EmailServiceImplement implements EmailService {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please insert typeMessage: contact, sell or insurance!");
             }
             TemplatedMessage message = new TemplatedMessage("it@buta-solution.com", "milanstojanovic895@gmail.com", templateId);
-            message.setTemplateModel(templateModel);  // OVDE setuješ mapu, ne JSON string
+            message.setTemplateModel(templateModel);
             message.setMessageStream("outbound");
 
             client.deliverMessageWithTemplate(message);
 
-            // Ispis odgovora
             System.out.println("Email sent successfully: " + client.getDeliveryStats());
 
         } catch (Exception e) {
