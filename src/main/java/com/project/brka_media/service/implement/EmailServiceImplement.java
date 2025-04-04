@@ -80,7 +80,7 @@ public class EmailServiceImplement implements EmailService {
             } else if (emailDTO.getTypeMessage().equals("sell")){
                 templateId = 39585486;
             } else if (emailDTO.getTypeMessage().equals("job")){
-                templateId = 39585486;
+                templateId = 39610863;
             }else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please insert typeMessage: contact, sell or insurance!");
             }
