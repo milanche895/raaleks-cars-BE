@@ -74,11 +74,9 @@ public class SpringSecurityConfiguration {
 
 		originsList.add("http://localhost:3000");
 		originsList.add("https://localhost:3000");
-		originsList.add("https://bacchus-shop.herokuapp.com");
-		originsList.add("https://bacchus-shop-prodcution.herokuapp.com");
-		originsList.add("https://bacchus-shop-stage.herokuapp.com");
-		originsList.add("http://www.bacchus-drinks.ch");
-		originsList.add("https://www.bacchus-drinks.ch");
+		originsList.add("https://raaleks-cars-be.onrender.com");
+		originsList.add("http://www.raaleks-cars-be.onrender.com");
+		originsList.add("https://www.raaleks-cars-be.onrender.com");
 
 		UrlBasedCorsConfigurationSource source =
 				new UrlBasedCorsConfigurationSource();
