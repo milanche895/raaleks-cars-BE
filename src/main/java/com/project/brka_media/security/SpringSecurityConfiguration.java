@@ -75,8 +75,9 @@ public class SpringSecurityConfiguration {
 		originsList.add("http://localhost:3000");
 		originsList.add("https://localhost:3000");
 		originsList.add("https://raaleks-cars-be.onrender.com");
-		originsList.add("http://www.raaleks-cars-be.onrender.com");
-		originsList.add("https://www.raaleks-cars-be.onrender.com");
+		originsList.add("http://www.raaleks-cars.ch");
+		originsList.add("https://www.raaleks-cars.ch");
+		originsList.add("https://raaleks-cars-be.onrender.com/public/raaleks/contactus");
 
 		UrlBasedCorsConfigurationSource source =
 				new UrlBasedCorsConfigurationSource();
