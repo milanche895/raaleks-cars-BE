@@ -81,7 +81,7 @@ public class EmailServiceImplement implements EmailService {
             }else {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please insert typeMessage: contact, sell or insurance!");
             }
-            TemplatedMessage message = new TemplatedMessage("it@buta-solution.com", "milanstojanovic895@gmail.com", templateId);
+            TemplatedMessage message = new TemplatedMessage("it@buta-solution.com", "info@raaleks-cars.ch", templateId);
             message.setTemplateModel(templateModel);
             message.setMessageStream("outbound");
 
